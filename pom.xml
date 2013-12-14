@@ -9,7 +9,7 @@
  
     <groupId>org.datanucleus</groupId>
     <artifactId>datanucleus-maven-parent</artifactId>
-    <version>3.3</version>
+    <version>3.4-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>DataNucleus Maven parent project</name>
