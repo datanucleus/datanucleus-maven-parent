@@ -28,8 +28,8 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git://github.com/datanucleus/${project.artifactId}.git</connection>
-        <developerConnection>scm:git:git://github.com/datanucleus/${project.artifactId}.git</developerConnection>
+        <connection>scm:git:https://github.com/datanucleus/${project.artifactId}.git</connection>
+        <developerConnection>scm:git:https://github.com/datanucleus/${project.artifactId}.git</developerConnection>
         <url>https://github.com/datanucleus/${project.artifactId}</url>
     </scm>
 
