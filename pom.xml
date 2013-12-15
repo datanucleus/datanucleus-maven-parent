@@ -29,12 +29,12 @@
 
     <scm>
         <!-- The inheritance model will append the artifact-id to the child 
-            definitions and apparently currently there's no way to suppress this (see 
-            http://jira.codehaus.org/browse/MRELEASE-331 hence we need to redifine the 
+            definitions and apparently, currently there's no way to suppress this (see 
+            http://jira.codehaus.org/browse/MRELEASE-331) hence we need to redefine the 
             scm section for all child POM's. Alternatively we can use a "connectionUrl" 
             property for some of the plugins e.g. maven-release-plugin and maven-scm-plugin, 
             however some functionality like site generation relies on the scm section 
-            declaration and it will display wrong urls (inherited from oss-parent) -->
+            declaration and it will display wrong URLs (inherited from oss-parent) -->
         <connection>scm:git:git@github.com:datanucleus/${project.artifactId}.git</connection>
         <developerConnection>scm:git:git@github.com:datanucleus/${project.artifactId}.git</developerConnection>
         <url>https://github.com/datanucleus/</url>
