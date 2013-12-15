@@ -17,7 +17,8 @@
         Provides common configuration for DataNucleus projects.
     </description>
 
-    <url>http://www.datanucleus.org</url>
+    <!-- Use a URL fragment so the child URLs are valid when the artifact ID is appended -->
+    <url>http://www.datanucleus.org/#</url>
 
     <licenses>
         <license>
@@ -36,7 +37,7 @@
             declaration and it will display wrong urls (inherited from oss-parent) -->
         <connection>scm:git:git@github.com:datanucleus/${project.artifactId}.git</connection>
         <developerConnection>scm:git:git@github.com:datanucleus/${project.artifactId}.git</developerConnection>
-        <url>https://github.com/datanucleus/${project.artifactId}</url>
+        <url>https://github.com/datanucleus/</url>
     </scm>
 
     <developers>
