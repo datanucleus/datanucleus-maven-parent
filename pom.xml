@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -9,7 +10,7 @@
 
     <groupId>org.datanucleus</groupId>
     <artifactId>datanucleus-maven-parent</artifactId>
-    <version>3.4-SNAPSHOT</version>
+    <version>3.3.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>DataNucleus Maven parent project</name>
@@ -17,7 +18,8 @@
         Provides common configuration for DataNucleus projects.
     </description>
 
-    <!-- Use a URL fragment so the child URLs are valid when the artifact ID is appended -->
+    <!-- Use a URL fragment so the child URLs are valid when the artifact 
+        ID is appended -->
     <url>http://www.datanucleus.org/#</url>
 
     <licenses>
@@ -83,6 +85,7 @@
                     <include>*LICENSE*.txt</include>
                     <include>NOTICE.txt</include>
                     <include>README.txt</include>
+                    <include>**/*.xml</include>
                 </includes>
             </resource>
         </resources>
@@ -136,22 +139,7 @@
                     </includes>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <version>2.4.0</version>
-                <extensions>true</extensions>
-                <executions>
-                    <execution>
-                        <!-- Need to have MANIFEST.MF in place before packaging, 
-                            so unit-tests will work -->
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>manifest</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <!-- 2.4 has an issue with m2e see -> https://bugs.eclipse.org/bugs/show_bug.cgi?id=406507 -->
@@ -179,6 +167,22 @@
         </extensions>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>2.4.0</version>
+                    <extensions>true</extensions>
+                    <executions>
+                        <execution>
+                            <!-- Need to have MANIFEST.MF in place before 
+                                packaging, so unit-tests will work -->
+                            <phase>process-classes</phase>
+                            <goals>
+                                <goal>manifest</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
@@ -267,4 +271,6 @@
             <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
+
+
 </project>
