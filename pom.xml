@@ -247,6 +247,82 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>coverage</id>
+            <activation>
+                <property>
+                    <name>coverage</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>0.6.5-SNAPSHOT</version>
+                        <executions>
+                            <execution>
+                                <id>default-prepare-agent</id>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>non-coverage</id>
+            <activation>
+                <property>
+                    <name>!coverage</name>
+                </property>
+            </activation>
+            <properties>
+                <!-- Define empty so tests do not fail to run -->
+                <argLine></argLine>
+            </properties>
+        </profile>
+        <profile>
+            <id>sonar</id>
+            <properties>
+                <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+                <sonar.junit.reportsPath>unit-coverage/target/surefire-reports</sonar.junit.reportsPath>
+                <sonar.jacoco.reportPath>unit-coverage/target/jacoco.exec</sonar.jacoco.reportPath>
+                <sonar.jacoco.itReportPath>${project.build.directory}/jacoco-intg.exec</sonar.jacoco.itReportPath>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>0.6.5-SNAPSHOT</version>
+                        <executions>
+                            <execution>
+                                <id>merge-integration-tests-coverage</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>merge</goal>
+                                </goals>
+                                <configuration>
+                                    <destFile>${project.build.directory}/jacoco-intg.exec</destFile>
+                                    <fileSets>
+                                      <fileSet>
+                                        <directory>intg-coverage</directory>
+                                        <includes>
+                                          <include>**/*.exec</include>
+                                        </includes>
+                                      </fileSet>
+                                    </fileSets>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
 
     <distributionManagement>
