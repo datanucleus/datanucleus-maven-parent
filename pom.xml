@@ -52,7 +52,19 @@
         <encoding>UTF-8</encoding>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
+        <skipCoverage>true</skipCoverage>
     </properties>
+    
+    <pluginRepositories>
+        <pluginRepository>
+            <!-- For JaCoCo plugin -->
+            <id>oss-snapshot</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
     <build>
         <sourceDirectory>src/java</sourceDirectory>
@@ -127,6 +139,22 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.6.5-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${skipCoverage}</skip>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -247,50 +275,11 @@
                 </plugins>
             </build>
         </profile>
-        <profile>
-            <id>coverage</id>
-            <activation>
-                <property>
-                    <name>coverage</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.jacoco</groupId>
-                        <artifactId>jacoco-maven-plugin</artifactId>
-                        <version>0.6.5-SNAPSHOT</version>
-                        <executions>
-                            <execution>
-                                <id>default-prepare-agent</id>
-                                <goals>
-                                    <goal>prepare-agent</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>non-coverage</id>
-            <activation>
-                <property>
-                    <name>!coverage</name>
-                </property>
-            </activation>
-            <properties>
-                <!-- Define empty so tests do not fail to run -->
-                <argLine />
-            </properties>
-        </profile>
+
         <profile>
             <id>sonar</id>
             <properties>
                 <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-                <sonar.junit.reportsPath>unit-coverage/target/surefire-reports</sonar.junit.reportsPath>
-                <sonar.jacoco.reportPath>unit-coverage/target/jacoco.exec</sonar.jacoco.reportPath>
                 <sonar.jacoco.itReportPath>${project.build.directory}/jacoco-intg.exec</sonar.jacoco.itReportPath>
             </properties>
             <build>
