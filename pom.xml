@@ -50,8 +50,8 @@
 
     <properties>
         <encoding>UTF-8</encoding>
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.target>1.6</maven.compiler.target>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
         <skipCoverage>true</skipCoverage>
         
         <!-- The older version 0.6.5-SNAPSHOT disappeared from their repo https://oss.sonatype.org/content/repositories/snapshots/org/jacoco/jacoco-maven-plugin/
@@ -59,20 +59,6 @@
         -->
         <jacoco.version>0.7.0.201403182114</jacoco.version>
     </properties>
-    
-    <pluginRepositories>
-        <pluginRepository>
-            <!-- For JaCoCo plugin
-            <id>oss-snapshot</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <snapshots><enabled>true</enabled></snapshots>
-            -->
-            <id>oss-releases</id>
-            <url>https://oss.sonatype.org/content/repositories/releases</url>
-            <snapshots><enabled>false</enabled></snapshots>
-            <releases><enabled>true</enabled></releases>
-        </pluginRepository>
-    </pluginRepositories>
 
     <build>
         <sourceDirectory>src/java</sourceDirectory>
@@ -345,6 +331,4 @@
             <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
-
-
 </project>
