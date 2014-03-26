@@ -9,7 +9,7 @@
 
     <groupId>org.datanucleus</groupId>
     <artifactId>datanucleus-maven-parent</artifactId>
-    <version>4.0.3-SNAPSHOT</version>
+    <version>4.0.3</version>
     <packaging>pom</packaging>
 
     <name>DataNucleus Maven parent project</name>
@@ -213,7 +213,7 @@
                                         <versionRange>[1.0.0,)</versionRange>
                                         <goals><goal>enforce</goal></goals>
                                     </pluginExecutionFilter>
-                                    <action><ignore/></action>
+                                    <action><ignore /></action>
                                 </pluginExecution>
                                 <pluginExecution>
                                 	<pluginExecutionFilter>
@@ -222,7 +222,7 @@
                                 		<versionRange>[2.4.0,)</versionRange>
                                 		<goals><goal>manifest</goal></goals>
                                 	</pluginExecutionFilter>
-                                	<action><ignore></ignore></action>
+                                	<action><ignore /></action>
                                 </pluginExecution>
                                 <pluginExecution>
                                 	<pluginExecutionFilter>
@@ -231,7 +231,7 @@
                                 		<versionRange>[0.6.5.201403032054,)</versionRange>
                                 		<goals><goal>prepare-agent</goal></goals>
                                 	</pluginExecutionFilter>
-                                	<action><ignore></ignore></action>
+                                	<action><ignore /></action>
                                 </pluginExecution>
                             </pluginExecutions>
                         </lifecycleMappingMetadata>
