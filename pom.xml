@@ -57,56 +57,6 @@
     </properties>
 
     <build>
-        <sourceDirectory>src/java</sourceDirectory>
-        <resources>
-            <resource>
-                <filtering>true</filtering>
-                <directory>src/java</directory>
-                <includes>
-                    <include>**/plugin.xml</include>
-                    <include>**/*.properties</include>
-                    <include>**/*.dtd</include>
-                    <include>**/*.xsd</include>
-                    <include>**/*.jdo</include>
-                    <include>**/META-INF/services/*</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>${basedir}</directory>
-                <includes>
-                    <include>plugin.xml</include>
-                    <include>schema/*</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>${basedir}/META-INF</directory>
-                <targetPath>META-INF</targetPath>
-                <includes>
-                    <include>*LICENSE*.txt</include>
-                    <include>NOTICE.txt</include>
-                    <include>README.txt</include>
-                    <include>**/*.xml</include>
-                </includes>
-            </resource>
-        </resources>
-
-        <testSourceDirectory>src/test</testSourceDirectory>
-        <testResources>
-            <testResource>
-                <directory>${basedir}/src/test</directory>
-                <includes>
-                    <include>**/persistence*.xml</include>
-                    <include>**/plugin*.xml</include>
-                    <include>**/*.jdo*</include>
-                    <include>**/*.orm*</include>
-                    <include>**/*.xsd</include>
-                    <include>**/*.jdoquery*</include>
-                    <include>**/*.MF</include>
-                    <include>log4j.properties</include>
-                </includes>
-            </testResource>
-        </testResources>
-
         <plugins>
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -214,15 +164,6 @@
                                         <goals><goal>enforce</goal></goals>
                                     </pluginExecutionFilter>
                                     <action><ignore /></action>
-                                </pluginExecution>
-                                <pluginExecution>
-                                	<pluginExecutionFilter>
-                                		<groupId>org.apache.felix</groupId>
-                                		<artifactId>maven-bundle-plugin</artifactId>
-                                		<versionRange>[2.4.0,)</versionRange>
-                                		<goals><goal>manifest</goal></goals>
-                                	</pluginExecutionFilter>
-                                	<action><ignore /></action>
                                 </pluginExecution>
                                 <pluginExecution>
                                 	<pluginExecutionFilter>
