@@ -1,4 +1,4 @@
 datanucleus-maven-parent
 ========================
 
-Parent POM for all Maven plugin projects
+Parent POM for all DataNucleus plugins using Maven.
