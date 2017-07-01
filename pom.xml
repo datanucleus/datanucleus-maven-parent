@@ -53,7 +53,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <skipCoverage>true</skipCoverage>
-        <jacoco.version>0.7.0.201403182114</jacoco.version>
+        <jacoco.version>0.7.9</jacoco.version>
     </properties>
 
     <build>
@@ -169,7 +169,7 @@
                                 	<pluginExecutionFilter>
                                 		<groupId>org.jacoco</groupId>
                                 		<artifactId>jacoco-maven-plugin</artifactId>
-                                		<versionRange>[0.6.5.201403032054,)</versionRange>
+                                		<versionRange>[0.7.9,)</versionRange>
                                 		<goals><goal>prepare-agent</goal></goals>
                                 	</pluginExecutionFilter>
                                 	<action><ignore /></action>
