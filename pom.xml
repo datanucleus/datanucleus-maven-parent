@@ -225,7 +225,6 @@
             <id>sonar</id>
             <properties>
                 <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-                <sonar.jacoco.itReportPath>${project.build.directory}/jacoco-intg.exec</sonar.jacoco.itReportPath>
             </properties>
             <build>
                 <plugins>
@@ -241,7 +240,8 @@
                                     <goal>merge</goal>
                                 </goals>
                                 <configuration>
-                                    <destFile>${project.build.directory}/jacoco-intg.exec</destFile>
+                                    <!-- Use default Sonar filename -->
+                                    <destFile>${project.build.directory}/jacoco-it.exec</destFile>
                                     <fileSets>
                                       <fileSet>
                                         <directory>intg-coverage</directory>
