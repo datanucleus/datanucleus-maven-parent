@@ -9,7 +9,7 @@
 
     <groupId>org.datanucleus</groupId>
     <artifactId>datanucleus-maven-parent</artifactId>
-    <version>5.0.1-SNAPSHOT</version>
+    <version>6.0.0-m1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>DataNucleus Maven parent project</name>
@@ -50,8 +50,8 @@
 
     <properties>
         <encoding>UTF-8</encoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.9</maven.compiler.source>
+        <maven.compiler.target>1.9</maven.compiler.target>
         <skipCoverage>true</skipCoverage>
         <jacoco.version>0.7.9</jacoco.version>
     </properties>
