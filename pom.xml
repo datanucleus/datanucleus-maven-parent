@@ -50,8 +50,8 @@
 
     <properties>
         <encoding>UTF-8</encoding>
-        <maven.compiler.source>1.9</maven.compiler.source>
-        <maven.compiler.target>1.9</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <skipCoverage>true</skipCoverage>
         <jacoco.version>0.8.6</jacoco.version>
     </properties>
@@ -140,12 +140,11 @@
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
-                    <version>4.2.0</version>
+                    <version>5.1.2</version>
                     <extensions>true</extensions>
                     <executions>
                         <execution>
-                            <!-- Need to have MANIFEST.MF in place before 
-                                packaging, so unit-tests will work -->
+                            <!-- Need to have MANIFEST.MF in place before packaging, so unit-tests will work -->
                             <phase>process-classes</phase>
                             <goals>
                                 <goal>manifest</goal>
@@ -153,6 +152,7 @@
                         </execution>
                     </executions>
                 </plugin>
+
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
