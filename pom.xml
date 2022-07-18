@@ -50,6 +50,8 @@
 
     <properties>
         <encoding>UTF-8</encoding>
+        <showWarnings></showWarnings>
+        <compilerArgument></compilerArgument>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <skipCoverage>true</skipCoverage>
@@ -62,7 +64,7 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
-                    <!-- This turns off some new JDK8 'feature' called "doclint" which renders Javadoc impossible to create. -->
+                    <!-- This turns off some JDK8+ 'feature' called "doclint" which renders Javadoc impossible to create. -->
                     <additionalparam>-Xdoclint:none</additionalparam>
                 </configuration>
             </plugin>
@@ -83,6 +85,11 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
+                <configuration>
+                    <showWarnings>${showWarnings}</showWarnings>
+                    <fork>true</fork>
+                    <compilerArgument>${compilerArgument}</compilerArgument>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -197,6 +204,15 @@
     </dependencies>
 
     <profiles>
+        <profile>
+            <!-- Profile to enable compiler warnings -->
+            <id>warnings</id>
+            <properties>
+                <showWarnings>true</showWarnings>
+		        <compilerArgument>-Xlint:unchecked</compilerArgument>
+            </properties>
+        </profile>
+
         <profile>
             <id>release-sign-artifacts</id>
             <activation>
